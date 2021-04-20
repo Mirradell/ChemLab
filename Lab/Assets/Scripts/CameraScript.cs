@@ -8,14 +8,14 @@ public class CameraScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        capsule = GetComponent<Rigidbody>();
+       // capsule = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        var horizontal = Input.GetAxis("Horizontal");// * 30;
-        var vertical = Input.GetAxis("Vertical");// * 20;
+        var horizontal = Input.GetAxis("Horizontal") * .5f;// * 30;
+        var vertical = Input.GetAxis("Vertical") * .5f;// * 20;
 
         if (horizontal != 0 || vertical != 0) // Движение камеры пострелочкам вправо/влево/вверх/вниз
         {
