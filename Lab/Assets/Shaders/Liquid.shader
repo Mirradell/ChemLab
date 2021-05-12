@@ -101,7 +101,7 @@
                 float dotProduct = 1 - pow(dot(i.normal, i.viewDir), _RimPower);
                 float4 RimResult = smoothstep(0.5, 1.0, dotProduct);
                 RimResult *= _RimColor;
-
+                
                 // foam edge
                 float4 foam = (step(i.fillEdge, 0.5) - step(i.fillEdge, (0.5 - _Rim)));
                 float4 foamColored = foam * (_FoamColor * 0.9);
