@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7030534353133695007}
   m_LocalRotation: {x: -0, y: -0, z: 2.510205e-10, w: 1}
-  m_LocalPosition: {x: -0.001, y: 0.018, z: -0}
-  m_LocalScale: {x: 0.8781258, y: 0.8781258, z: 0.8781258}
+  m_LocalPosition: {x: 0.002, y: 0.011, z: -0.001}
+  m_LocalScale: {x: 0.82825816, y: 0.9570192, z: 0.8781262}
   m_Children: []
   m_Father: {fileID: 7034488199676764791}
   m_RootOrder: 0
@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 7044821665195769155}
   - component: {fileID: 7030534353241704443}
   - component: {fileID: 7030534353241704421}
+  - component: {fileID: 714470898950163996}
   m_Layer: 0
   m_Name: Flask with liquid
   m_TagString: Untagged
@@ -204,3 +205,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mousePos: {x: 0, y: 0, z: 0}
+--- !u!114 &714470898950163996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031630448751178499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9dfe5934e7fc94692247a35d5786a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Liquid: {fileID: 7030534353133695007}
+  FillAmount: 1
