@@ -34,6 +34,8 @@ public class FlaskScript : MonoBehaviour
             prevMousePos = mousePos;
 
             flask.transform.rotation = Quaternion.Euler(0, 0, Input.mouseScrollDelta.y * 3 + transform.rotation.eulerAngles.z);
+        //    if (Input.mouseScrollDelta != new Vector2(0, 0)) // вращение по колесику мыши
+         //       transform.rotation = Quaternion.Euler(0, 0, Input.mouseScrollDelta.y * 3 + transform.rotation.eulerAngles.z);
         }
     }
 
