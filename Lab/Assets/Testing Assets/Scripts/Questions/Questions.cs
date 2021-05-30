@@ -7,7 +7,8 @@ public class Questions : MonoBehaviour
 {
     [SerializeField] private GameObject[] QuestionsCanvas;
     [SerializeField] private Color rightColor; 
-    [SerializeField] private Color wrongColor; 
+    [SerializeField] private Color wrongColor;
+    [SerializeField] private GameObject menu;
     
     private int CountOfQuestions;
     private int i = 0;
@@ -69,6 +70,7 @@ public class Questions : MonoBehaviour
             if(i == CountOfQuestions)
             {
                 SaveResults();
+                menu.SetActive(true);
             }
         }
     }

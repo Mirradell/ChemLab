@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-using TMPro;
+using UnityEngine.UI;
 
 public class AuthUser : MonoBehaviour
 {
 	[SerializeField]
-	private TMP_InputField InName, InSurname;
+	private InputField InName, InSurname;
+
+	[SerializeField] private GameObject questionsPanel, menuPanel;
 
 	public void StartGame()
 	{
@@ -13,7 +14,9 @@ public class AuthUser : MonoBehaviour
 		{
 			PlayerPrefs.SetString("GameName", InSurname.text + " " + InName.text);
 			PlayerPrefs.Save();
-			SceneManager.LoadScene(1);
+
+			menuPanel.SetActive(false);
+			questionsPanel.SetActive(true);
 		}
 	}
 }
