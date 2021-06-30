@@ -25,6 +25,8 @@ Shader "SBS/Mana" {
 	}
 
    SubShader {
+		Tags {"Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent"}
+		LOD 200
  
       Pass {
          Cull Front 
@@ -132,11 +134,12 @@ Shader "SBS/Mana" {
 			half4 tex3 = tex2D( _MainTex3, i.uv2.xy );
 			half4 tex4 = tex2D( _MainTex4, i.uv2.zw );
 
-			half3 tex1Final  = ((tex1 * 10.0) * tex2) * _Color1;
+			half4 tex1Final  = ((tex1 * 10.0) * tex2) * _Color1;
 
-			half3 FinalColor = tex3 * _Color2 * (tex1Final * 2)  + tex1Final * 0.5 + (tex4 * _Color3);
+			half4 FinalColor = tex3 * _Color2 * (tex1Final * 2)  + tex1Final * 0.5 + (tex4 * _Color3);
 				
-			return half4( tex1Final.rgb * tex4.rgb * (_Color1.rgb * _Color2.rgb), 1.0);
+			half4 result = tex1Final * tex4 * (_Color1 * _Color2);
+			return half4(.1, result.gba);
          }
  
          ENDCG  
@@ -249,11 +252,11 @@ Shader "SBS/Mana" {
 			half4 tex3 = tex2D( _MainTex3, i.uv2.xy );
 			half4 tex4 = tex2D( _MainTex4, i.uv2.zw );
 
-			half3 tex1Final  = ((tex1 * 10.0) * tex2) * _Color1;
+			half4 tex1Final  = ((tex1 * 10.0) * tex2) * _Color1;
 
-			half3 FinalColor = tex3 * _Color2 * (tex1Final * 2)  + tex1Final * 0.5 + (tex4 * _Color3);
+			half4 FinalColor = tex3 * _Color2 * (tex1Final * 2)  + tex1Final * 0.5 + (tex4 * _Color3);
 				
-			return half4( FinalColor.rgb, 1.0);
+			return half4(.1, FinalColor.gba);
          }
  
          ENDCG  

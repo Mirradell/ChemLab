@@ -4,7 +4,7 @@
     {
         _Tint("Tint", Color) = (1,1,1,1)
         _MainTex("Texture", 2D) = "white" {}
-        _FillAmount("Fill Amount", Range(-10,10)) = 0.0
+        _FillAmount("Fill Amount", Range(0, 1)) = 0.0
         [HideInInspector] _WobbleX("WobbleX", Range(-1,1)) = 0.0
         [HideInInspector] _WobbleZ("WobbleZ", Range(-1,1)) = 0.0
         _TopColor("Top Color", Color) = (1,1,1,1)
@@ -12,6 +12,7 @@
         _Rim("Foam Line Width", Range(0,0.1)) = 0.0
         _RimColor("Rim Color", Color) = (1,1,1,1)
         _RimPower("Rim Power", Range(0,10)) = 0.0
+        _Transparancy("Transparancy", Range(0,1)) = 0.1
     }
 
         SubShader
@@ -53,7 +54,7 @@
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
-            float _FillAmount, _WobbleX, _WobbleZ;
+            float _FillAmount, _WobbleX, _WobbleZ, _Transparancy;
             float4 _TopColor, _RimColor, _FoamColor, _Tint;
             float _Rim, _RimPower;
 
@@ -83,7 +84,8 @@
                // combine rotations with worldPos, based on sine wave from script
                float3 worldPosAdjusted = worldPos + (worldPosX * _WobbleX) + (worldPosZ * _WobbleZ);
                // how high up the liquid is
-               o.fillEdge = worldPosAdjusted.y + _FillAmount;
+               //o.fillEdge = worldPosAdjusted.y + _FillAmount;
+               o.fillEdge = worldPosAdjusted.y + 1 - _FillAmount; //invert _FillAmount!!!
 
                o.viewDir = normalize(ObjSpaceViewDir(v.vertex));
                o.normal = v.normal;
@@ -114,8 +116,13 @@
 
                 // color of backfaces/ top
                 float4 topColor = _TopColor * (foam + result);
+                float4 finalColor = facing > 0 ? finalResult : topColor;
+
+                fixed4 grab = tex2Dproj(_MainTex, UNITY_PROJ_COORD(i.vertex));
+                finalColor = lerp(finalColor, grab, _Transparancy);
+                finalColor.rg = 0.0;
                 //VFACE returns positive for front facing, negative for backfacing
-                return facing > 0 ? finalResult : topColor;
+                return finalColor;
 
           }
           ENDCG

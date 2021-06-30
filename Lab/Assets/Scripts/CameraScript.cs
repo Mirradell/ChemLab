@@ -5,10 +5,12 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     Rigidbody capsule;
+    Camera camera;
     // Start is called before the first frame update
     void Start()
     {
-       // capsule = GetComponent<Rigidbody>();
+        // capsule = GetComponent<Rigidbody>();
+        camera = GetComponent<Camera>();
     }
 
     // Update is called once per frame
@@ -30,5 +32,11 @@ public class CameraScript : MonoBehaviour
             transform.localEulerAngles = new Vector3(Mathf.Clamp(transform.localEulerAngles.x - vertical, 0f, 20f),
                                                      yNew, 0);
         }
+
+        if ((Input.GetKey(KeyCode.Plus) || Input.GetKey(KeyCode.KeypadPlus) || Input.GetKey(KeyCode.Equals)) && camera.fieldOfView > 10)
+            camera.fieldOfView -= 0.1f;
+
+        if ((Input.GetKey(KeyCode.Minus) || Input.GetKey(KeyCode.KeypadMinus)) && camera.fieldOfView < 60)
+            camera.fieldOfView += 0.1f;
     }
 }

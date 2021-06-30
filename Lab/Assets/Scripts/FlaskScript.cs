@@ -21,33 +21,4 @@ public class FlaskScript : MonoBehaviour
     {
         
     }
-
-    private void OnMouseDrag()
-    {
-        if (prevMousePos != new Vector3())
-        {
-            mousePos = Input.mousePosition;
-            var difference = (mousePos - prevMousePos) * Time.deltaTime;// * 2;
-            flask.transform.localPosition = new Vector3(flask.transform.localPosition.x + difference.x,
-                                                   flask.transform.localPosition.y + difference.y,
-                                                   0f);
-            prevMousePos = mousePos;
-
-            flask.transform.rotation = Quaternion.Euler(0, 0, Input.mouseScrollDelta.y * 3 + transform.rotation.eulerAngles.z);
-        //    if (Input.mouseScrollDelta != new Vector2(0, 0)) // вращение по колесику мыши
-         //       transform.rotation = Quaternion.Euler(0, 0, Input.mouseScrollDelta.y * 3 + transform.rotation.eulerAngles.z);
-        }
-    }
-
-    private void OnMouseDown()
-    {
-        prevMousePos = Input.mousePosition;
-        flask.useGravity = false;
-    }
-    private void OnMouseUp()
-    {
-        prevMousePos = new Vector3();
-        flask.useGravity = true;
-    }
-
 }

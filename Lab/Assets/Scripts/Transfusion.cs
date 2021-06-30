@@ -39,6 +39,8 @@ public class Transfusion : MonoBehaviour
         // HACK:
         // формула вывода угла наклона колбы
         float rotation = (180 - unityRotation) * Mathf.Sign(Mathf.Sin(unityRotation * Mathf.Deg2Rad)) - 90;
+        if (rotation < 0)
+            rotation += 360;
 #if DEBUG_TRANSFUSION
         Debug.Log($"ALARM {unityRotation} {rotation} {Mathf.Sign(Mathf.Sin(unityRotation * Mathf.Deg2Rad))}");
         Debug.Log($"{maxAngle} {Mathf.Abs(rotation)}");
