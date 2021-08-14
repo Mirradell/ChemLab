@@ -22,7 +22,7 @@ public class Wobble : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        rend = GetComponent<Renderer>();
+        rend = GetComponent<MeshRenderer>();
     }
     private void Update()
     {
