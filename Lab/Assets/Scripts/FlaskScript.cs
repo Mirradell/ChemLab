@@ -6,9 +6,7 @@ using UnityEngine;
 public class FlaskScript : MonoBehaviour
 {
     Rigidbody flask;
-    //private CharacterController character;
-    public Vector3 mousePos;
-    private Vector3 prevMousePos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,4 +19,25 @@ public class FlaskScript : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        Debug.Log(other.tag);
+        if (!other.CompareTag("flask")) return;
+
+        if (flask.position.y < other.GetComponent<Rigidbody>().position.y) // считается перелив из верхнего в нижний
+            return;
+
+        // TODO: сделать переливание из flask в other
+        other.GetComponent<Transfusion>().FillAmount += flask.GetComponent<Transfusion>().liquidAway;
+    }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (!other.CompareTag("flask"))
+    //    {
+    //        flask.position = new Vector3(flask.position.x, 1.7f, flask.position.z);
+    //        flask.useGravity = false;
+    //    }
+    //}
 }

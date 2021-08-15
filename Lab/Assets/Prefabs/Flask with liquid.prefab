@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 1003354533}
   m_Layer: 0
   m_Name: Flask with liquid
-  m_TagString: Untagged
+  m_TagString: flask
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,7 +138,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153595840598067731}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.07891287, y: 0.1947101, z: 0.084325075}
@@ -155,7 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db034a36685625a42b28e0bbbfad64b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mousePos: {x: 0, y: 0, z: 0}
 --- !u!65 &7770774953986538967
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -184,6 +183,7 @@ MonoBehaviour:
   Liquid: {fileID: 6950009074693117615}
   FillAmount: 1
   speed: 0.001
+  liquidAway: -1
 --- !u!1 &6950009074693117615
 GameObject:
   m_ObjectHideFlags: 0

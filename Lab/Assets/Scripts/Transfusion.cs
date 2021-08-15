@@ -9,9 +9,11 @@ public class Transfusion : MonoBehaviour
     private const float bottomLevel = 0f;//-0.26f;
 
     [SerializeField] GameObject Liquid;
-    [SerializeField, Range(0,1)] float FillAmount = 1f;
+    [Range(0,1)] public float FillAmount = 1f;
     [SerializeField, Range(0, 0.2f)] float speed; //максимальная пропускная способность горлышка
     Renderer _renderer;
+
+    public float liquidAway = -1;
     float realAmount
     {
         get
@@ -35,9 +37,10 @@ public class Transfusion : MonoBehaviour
 
     private void TransfusionLogic()
     {
-        if (FillAmount <= 0)
+        if (FillAmount <= 0 || FillAmount > 1)
         {
-            FillAmount = 0;
+            FillAmount = FillAmount <= 0 ? 0 : 1;
+            liquidAway = 0;
             _renderer.material.SetFloat("_FillAmount", FillAmount);
             return;
         }
@@ -49,28 +52,27 @@ public class Transfusion : MonoBehaviour
             float unityRotation = transform.rotation.eulerAngles.z;
             // HACK:
             // формула вывода угла наклона колбы
-            float rotation = (180 - unityRotation) * Mathf.Sign(Mathf.Sin(unityRotation * Mathf.Deg2Rad)) - 90;
-            //float rotation = (90 - unityRotation) * Mathf.Sign(Mathf.Sin(unityRotation * Mathf.Deg2Rad));
-            if (rotation < 0)
-                rotation += 360;
+            float rotation = unityRotation < 0.0000001f ? 90 : (180 - unityRotation) * Mathf.Sign(Mathf.Sin(unityRotation * Mathf.Deg2Rad)) - 90;
+
 #if DEBUG_TRANSFUSION
         Debug.Log($"ALARM {unityRotation} {rotation} {Mathf.Sign(Mathf.Sin(unityRotation * Mathf.Deg2Rad))}");
         Debug.Log($"{maxAngle} {Mathf.Abs(rotation)}");
 #endif
 
-            if (maxAngle > rotation)
+            if (maxAngle > rotation || rotation < 0)
             {
 #if DEBUG_TRANSFUSION
             Debug.Log($"ALARM");
 #endif
                 if (maxAngle - rotation > speed)
-                    FillAmount -= speed;
+                    liquidAway = speed;
                 else
-                    FillAmount -= maxAngle - rotation;
-            }
+                    liquidAway = maxAngle - rotation;
 
-            Debug.Log("maxAngle = " + maxAngle + "\tunityRotation = " + unityRotation 
-                    + "\trotation = " + rotation + "\tFillAmount = " + realAmount);
+                FillAmount -= liquidAway;
+            }
+            else
+                liquidAway = 0;
         }
     }
 }
