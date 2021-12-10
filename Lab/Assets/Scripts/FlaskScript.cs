@@ -22,9 +22,9 @@ public class FlaskScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.tag);
         if (!other.CompareTag("flask")) return;
 
+        Debug.Log(other.tag);
         if (flask.position.y < other.GetComponent<Rigidbody>().position.y) // считается перелив из верхнего в нижний
             return;
 

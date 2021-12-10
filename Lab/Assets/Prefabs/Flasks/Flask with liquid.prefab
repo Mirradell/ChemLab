@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2541369307128536690}
   - component: {fileID: 7770774953986538967}
   - component: {fileID: 1003354533}
+  - component: {fileID: 1461148803}
   m_Layer: 0
   m_Name: Flask with liquid
   m_TagString: flask
@@ -125,7 +126,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 153595840598067731}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.09017545
   m_Height: 0.24116759
   m_Direction: 0
@@ -163,11 +164,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153595840598067731}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.24116759, y: 0.1797723, z: 0.24308607}
-  m_Center: {x: 0, y: 0.08802116, z: 0.00095945597}
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!114 &1003354533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +185,25 @@ MonoBehaviour:
   FillAmount: 1
   speed: 0.001
   liquidAway: -1
+--- !u!114 &1461148803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153595840598067731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36576a9864528de4ea093509ca531f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floor: {fileID: 0}
+  parts:
+  - {fileID: 1217540936046530211, guid: f75773e5f4421c046b1f501d48b863aa, type: 3}
+  - {fileID: 3439720141313444347, guid: fb17d83998492ea46bf5f0a000134c2d, type: 3}
+  - {fileID: 8609970983780116738, guid: 18c8e8260126e814caf469caff619727, type: 3}
+  radius: 1
+  piecesAmount: 0
 --- !u!1 &6950009074693117615
 GameObject:
   m_ObjectHideFlags: 0
