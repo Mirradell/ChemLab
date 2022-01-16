@@ -19,11 +19,9 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.Z))
-            player.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + step);
-        //            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + step);
+            player.position += Vector3.forward * step;
         if (Input.GetKey(KeyCode.X))
-            player.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - step);
-        // transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - step);
+            player.position -= Vector3.forward * step;
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)

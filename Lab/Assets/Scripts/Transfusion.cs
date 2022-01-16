@@ -13,6 +13,8 @@ public class Transfusion : MonoBehaviour
     [SerializeField, Range(0, 0.2f)] float speed; //максимальная пропускная способность горлышка
     Renderer _renderer;
 
+    public Transfusion fillingFlask;
+
     public float liquidAway = -1;
     float realAmount
     {
@@ -30,7 +32,7 @@ public class Transfusion : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         TransfusionLogic();
     }
@@ -73,6 +75,9 @@ public class Transfusion : MonoBehaviour
             }
             else
                 liquidAway = 0;
+
+            if (fillingFlask != null)
+                fillingFlask.FillAmount += liquidAway;
         }
     }
 }

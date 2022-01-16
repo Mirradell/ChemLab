@@ -218,6 +218,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flask with liquid (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 153595840598067731, guid: ef2bdc30cb04ed34fb44ab7e2302bb3e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4750388020338298733, guid: ef2bdc30cb04ed34fb44ab7e2302bb3e,
         type: 3}
       propertyPath: m_RootOrder
@@ -881,6 +886,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flask with liquid (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 153595840598067731, guid: ef2bdc30cb04ed34fb44ab7e2302bb3e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4750388020338298733, guid: ef2bdc30cb04ed34fb44ab7e2302bb3e,
         type: 3}
       propertyPath: m_RootOrder
@@ -1008,7 +1018,7 @@ PrefabInstance:
     - target: {fileID: 23676649087458038, guid: cd6649c2928f310498660dcff07705ac,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 23676649087458038, guid: cd6649c2928f310498660dcff07705ac,
         type: 3}
@@ -1045,6 +1055,10 @@ PrefabInstance:
       propertyPath: floor
       value: 
       objectReference: {fileID: 1271587602}
+    - target: {fileID: 1461148803, guid: ef2bdc30cb04ed34fb44ab7e2302bb3e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 153595840598067731, guid: ef2bdc30cb04ed34fb44ab7e2302bb3e,
         type: 3}
       propertyPath: m_Name
@@ -1319,6 +1333,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flask with liquid (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 153595840598067731, guid: ef2bdc30cb04ed34fb44ab7e2302bb3e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4750388020338298733, guid: ef2bdc30cb04ed34fb44ab7e2302bb3e,
         type: 3}
       propertyPath: m_RootOrder
@@ -1472,6 +1491,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Flask with liquid (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 153595840598067731, guid: ef2bdc30cb04ed34fb44ab7e2302bb3e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4750388020338298733, guid: ef2bdc30cb04ed34fb44ab7e2302bb3e,
         type: 3}
@@ -1732,6 +1756,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flask with liquid (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 153595840598067731, guid: ef2bdc30cb04ed34fb44ab7e2302bb3e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4750388020338298733, guid: ef2bdc30cb04ed34fb44ab7e2302bb3e,
         type: 3}
       propertyPath: m_RootOrder
@@ -1804,6 +1833,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Flask with liquid (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 153595840598067731, guid: ef2bdc30cb04ed34fb44ab7e2302bb3e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4750388020338298733, guid: ef2bdc30cb04ed34fb44ab7e2302bb3e,
         type: 3}
@@ -2143,7 +2177,7 @@ PrefabInstance:
     - target: {fileID: 1187490532538962653, guid: c9040676ec55d104c97d37c05eb853cf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.2
+      value: -7.96
       objectReference: {fileID: 0}
     - target: {fileID: 1187490532538962653, guid: c9040676ec55d104c97d37c05eb853cf,
         type: 3}
@@ -2214,6 +2248,41 @@ PrefabInstance:
         type: 3}
       propertyPath: field of view
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187490534433088020, guid: c9040676ec55d104c97d37c05eb853cf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187490534433088020, guid: c9040676ec55d104c97d37c05eb853cf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187490534433088020, guid: c9040676ec55d104c97d37c05eb853cf,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9968779
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187490534433088020, guid: c9040676ec55d104c97d37c05eb853cf,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.078958735
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187490534433088020, guid: c9040676ec55d104c97d37c05eb853cf,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187490534433088020, guid: c9040676ec55d104c97d37c05eb853cf,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187490534433088020, guid: c9040676ec55d104c97d37c05eb853cf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 9.057
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1187490534433088022, guid: c9040676ec55d104c97d37c05eb853cf, type: 3}
@@ -2308,6 +2377,10 @@ PrefabInstance:
       propertyPath: floor
       value: 
       objectReference: {fileID: 1271587602}
+    - target: {fileID: 1461148803, guid: ef2bdc30cb04ed34fb44ab7e2302bb3e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 153595840598067731, guid: ef2bdc30cb04ed34fb44ab7e2302bb3e,
         type: 3}
       propertyPath: m_Name

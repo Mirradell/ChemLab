@@ -30,7 +30,7 @@ public class FlaskBoomScript : MonoBehaviour
     {
         var speed = Mathf.Sqrt(20 * (flask.position.y - floor.position.y));
         piecesAmount = 0;
-        if (speed > 1.5f)
+        if (speed > 3f)
             piecesAmount = Random.Range(0, 30);
 
         if (Random.Range(0, 100) % 30 == 0)
@@ -43,8 +43,9 @@ public class FlaskBoomScript : MonoBehaviour
 
         for (var i = 0; i < piecesAmount; i++)
         {
-            var currentVector = new Vector3();
-            currentVector = Random.insideUnitSphere * radius; // генерация скорости, +-1 - разные направления
+            var currentVector = Random.insideUnitSphere * radius; // генерация скорости, +-1 - разные направления
+            if (currentVector.y < 0)
+                currentVector = new Vector3(currentVector.x, Mathf.Abs(currentVector.y), currentVector.z);
 
             var part = Instantiate(parts[Random.Range(0, parts.Count)]).GetComponent<Rigidbody>();
             part.position = flask.position;// + new Vector3(currentVector.x, Mathf.Abs(currentVector.y), currentVector.z);

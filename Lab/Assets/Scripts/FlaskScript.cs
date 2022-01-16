@@ -24,12 +24,18 @@ public class FlaskScript : MonoBehaviour
     {
         if (!other.CompareTag("flask")) return;
 
-        Debug.Log(other.tag);
         if (flask.position.y < other.GetComponent<Rigidbody>().position.y) // считается перелив из верхнего в нижний
             return;
 
+        Debug.Log(other.tag);
         // TODO: сделать переливание из flask в other
-        other.GetComponent<Transfusion>().FillAmount += flask.GetComponent<Transfusion>().liquidAway;
+        gameObject.GetComponent<Transfusion>().fillingFlask = other.GetComponent<Transfusion>();
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag("flask")) return;
+        gameObject.GetComponent<Transfusion>().fillingFlask = null;
     }
 
     //private void OnTriggerEnter(Collider other)
