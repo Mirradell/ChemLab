@@ -95,7 +95,8 @@
             fixed4 frag(v2f i, fixed facing : VFACE) : SV_Target
             {
                 // sample the texture
-                fixed4 col = tex2D(_MainTex, i.uv) * _Tint;
+                //fixed4 col = tex2D(_MainTex, i.uv) * _Tint;
+                fixed4 col = _Tint;
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
 
@@ -112,7 +113,7 @@
                 float4 resultColored = result * col;
                 // both together, with the texture
                 float4 finalResult = resultColored + foamColored;
-                finalResult.rgb += RimResult;
+                finalResult.rgba += RimResult;
 
                 // color of backfaces/ top
                 float4 topColor = _TopColor * (foam + result);
@@ -120,7 +121,6 @@
 
                 fixed4 grab = tex2Dproj(_MainTex, UNITY_PROJ_COORD(i.vertex));
                 finalColor = lerp(finalColor, grab, _Transparancy);
-                finalColor.rg = 0.0;
                 //VFACE returns positive for front facing, negative for backfacing
                 return finalColor;
 

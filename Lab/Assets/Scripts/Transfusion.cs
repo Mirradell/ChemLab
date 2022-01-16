@@ -32,7 +32,7 @@ public class Transfusion : MonoBehaviour
     }
 
 
-    void FixedUpdate()
+    public void FixedUpdate()
     {
         TransfusionLogic();
     }

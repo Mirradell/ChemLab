@@ -12,7 +12,8 @@ public class FlaskBoomScript : MonoBehaviour
     private Rigidbody flask;
     [SerializeField]
     private float piecesAmount;
-    private float PrevY;
+    [SerializeField]
+    private float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +29,9 @@ public class FlaskBoomScript : MonoBehaviour
 
     private void BoomData()
     {
-        var speed = Mathf.Sqrt(20 * (flask.position.y - floor.position.y));
+        speed = Mathf.Sqrt(20 * (flask.position.y - floor.position.y));
         piecesAmount = 0;
-        if (speed > 3f)
+        if (speed > 6f)
             piecesAmount = Random.Range(0, 30);
 
         if (Random.Range(0, 100) % 30 == 0)

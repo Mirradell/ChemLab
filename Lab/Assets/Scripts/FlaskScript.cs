@@ -30,12 +30,18 @@ public class FlaskScript : MonoBehaviour
         Debug.Log(other.tag);
         // TODO: сделать переливание из flask в other
         gameObject.GetComponent<Transfusion>().fillingFlask = other.GetComponent<Transfusion>();
+        other.GetComponent<Titrovanie>().isFilling = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag("flask")) return;
+
+        if (flask.position.y < other.GetComponent<Rigidbody>().position.y) // считается перелив из верхнего в нижний
+            return;
+
         gameObject.GetComponent<Transfusion>().fillingFlask = null;
+        other.GetComponent<Titrovanie>().isFilling = false;
     }
 
     //private void OnTriggerEnter(Collider other)
