@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MouseFollowingScript : MonoBehaviour
 {
-    public float rotationAngle;
+    float rotationAngle = 10;
 
-    private Rigidbody rigidbody;
+    new Rigidbody rigidbody;
   //  private float zCoordViewport;
     private float zCoordWorld;
 
@@ -22,8 +22,8 @@ public class MouseFollowingScript : MonoBehaviour
         var zCoordViewport = Camera.main.WorldToViewportPoint(rigidbody.position).z;
         var viewport = Camera.main.ViewportToWorldPoint(new Vector3(mousePos.x, mousePos.y, zCoordViewport));
 
-        rigidbody.position = new Vector3(viewport.x, viewport.y, zCoordWorld);
-        rigidbody.rotation = Quaternion.Euler(0, 0, Input.mouseScrollDelta.y * rotationAngle + rigidbody.rotation.eulerAngles.z);
+        transform.position = new Vector3(viewport.x, viewport.y, zCoordWorld);
+        transform.rotation = Quaternion.Euler(rigidbody.rotation.eulerAngles.x, rigidbody.rotation.eulerAngles.y, Input.mouseScrollDelta.y * rotationAngle + rigidbody.rotation.eulerAngles.z);
     }
 
     private void OnMouseDown()

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - flask
   - Floor
+  - Actor
+  - Biretka
+  - drop
   layers:
   - Default
   - TransparentFX

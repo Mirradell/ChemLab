@@ -5,6 +5,7 @@ using UnityEngine;
 public class FlaskBoomScript : MonoBehaviour
 {
     public Rigidbody floor;
+    public GameObject puddle;
     public List<GameObject> parts;
     [Range(0f, 1f)]
     public float radius;
@@ -53,6 +54,18 @@ public class FlaskBoomScript : MonoBehaviour
             part.transform.localScale = Vector3.Scale(part.transform.localScale, Random.insideUnitSphere);
             part.AddForce(currentVector * part.mass, ForceMode.Impulse);
         }
+
+        if (gameObject.GetComponent<Transfusion>() != null)
+        {
+            var waterAmount = gameObject.GetComponent<Transfusion>().FillAmount;
+            var puddleObj = Instantiate(puddle);
+            puddleObj.transform.position = flask.position + new Vector3(0, 0.1f, 0);
+            if (puddleObj.transform.position.y > 1.93f)
+                puddleObj.transform.position = new Vector3(puddleObj.transform.position.x, 1.93f, puddleObj.transform.position.z);
+            puddleObj.transform.localScale = Vector3.Scale(puddleObj.transform.localScale, new Vector3(waterAmount, 1, waterAmount));
+            puddleObj.transform.GetChild(0).GetComponent<MeshRenderer>().material = gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material;
+            puddleObj.transform.GetChild(0).GetComponent<MeshRenderer>().material.SetFloat("_FillAmount", 1);
+        }
     }
 
     private void OnMouseUp()
@@ -63,7 +76,7 @@ public class FlaskBoomScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Floor") && piecesAmount > 0)
+        if (other.CompareTag("Floor") && piecesAmount > 2)
         {
             CountPartsSpeed();
             piecesAmount = 0;
